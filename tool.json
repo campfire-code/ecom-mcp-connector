@@ -1,0 +1,10 @@
+{
+  "id": "e30",
+  "slug": "ecom-mcp-connector",
+  "name": "电商多店 AI 连接器",
+  "version": "0.1.6-campfire.1",
+  "repo": "campfire-code/ecom-mcp-connector",
+  "license": "MIT",
+  "delivery": "launcher",
+  "upstream": { "repo": "TonyWang-hub/mcp-cn-commerce", "license": "MIT", "tag": "v0.1.6" }
+}
