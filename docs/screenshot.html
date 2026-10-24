@@ -1,12 +1,62 @@
 <!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>电商多店 AI 连接器</title><style>
-*{box-sizing:border-box}body{margin:0;width:1040px;height:700px;background:#f4f5f7;font-family:-apple-system,"PingFang SC","Helvetica Neue",sans-serif;color:#1d2129;padding:36px}
-.card{background:#fff;border-radius:20px;height:628px;padding:40px 48px;box-shadow:0 2px 14px rgba(0,0,0,.06);position:relative;display:flex;flex-direction:column}
-.brand{position:absolute;right:32px;top:24px;font-size:13px;color:#8a919c}
-h1{margin:0 0 12px;font-size:36px;font-weight:700}
-.desc{font-size:16px;line-height:1.6;color:#4e5560;margin:0 0 22px}
-h2{font-size:15px;color:#ff6a1a;margin:0 0 10px;letter-spacing:1px}
-ol{margin:0;padding:0;list-style:none;counter-reset:n}
-li{counter-increment:n;display:flex;gap:14px;font-size:16px;line-height:1.55;margin-bottom:12px}
-li:before{content:counter(n);flex:none;width:26px;height:26px;border-radius:50%;background:#fff1e8;color:#ff6a1a;font-weight:700;font-size:14px;text-align:center;line-height:26px;margin-top:1px}
-.fmt{margin-top:auto;background:#f4f5f7;border-radius:12px;padding:14px 18px;font-size:14px;line-height:1.5;color:#4e5560}.fmt b{color:#1d2129}
-</style><body><div class="card"><div class="brand">篝火出品</div><h1>电商多店 AI 连接器</h1><p class="desc">让支持 MCP 的 AI 助手只读查询你自己店铺的经营数据，覆盖抖店、京东、淘宝、拼多多、快手、小红书、微信小店和巨量引擎 / 千川。</p><h2>怎么用</h2><ol><li><span>下载 portable.zip 解压到路径里没有中文和空格的文件夹</span></li><li><span>Windows 双击「启动（Windows 双击）.bat」；Mac 右键「启动（Mac 双击）.command」→「打开」</span></li><li><span>把窗口里打印的配置复制到 MCP 客户端配置文件，只保留要用的平台，填入自己的凭证后重启客户端</span></li><li><span>在客户端里直接提问，例如「读取抖店这个时间窗口的订单」</span></li></ol><div class="fmt"><b>交付形式　</b>MCP 服务（启动器 portable.zip），没有自己的界面；需自己在各平台申请凭证</div></div></body></html>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--a:#C12B15;--ad:#8f1d0d;--soft:#fdeeea;--ink:#1f2328;--mut:#69707a;--line:#e4e7ec}
+body{width:1040px;height:700px;background:#eef0f3;font-family:-apple-system,"PingFang SC","Hiragino Sans GB",sans-serif;color:var(--ink);overflow:hidden;display:flex}
+.side{width:236px;background:#fff;border-right:1px solid var(--line);color:#3a4048;padding:26px 20px;display:flex;flex-direction:column}
+.side h1{font-size:23px;color:var(--a);line-height:1.3;font-weight:800}
+.side .tg{margin:8px 0 22px;font-size:13px;color:var(--mut);line-height:1.6}
+.side h3{font-size:12px;letter-spacing:2px;color:var(--ad);margin:0 0 10px;font-weight:600}
+.pl{display:flex;align-items:center;gap:8px;font-size:14px;padding:7px 10px;border-radius:7px;margin-bottom:4px;background:#f4f5f7}
+.pl i{width:8px;height:8px;border-radius:50%;background:#46c37b}
+.pl.off{opacity:.6}.pl.off i{background:#8a929c}
+.lock{margin-top:auto;background:var(--soft);border-radius:10px;padding:12px 13px;font-size:13px;line-height:1.65;color:#5a2a22}
+.lock b{color:var(--ad)}
+.main{flex:1;padding:22px 26px;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mut);margin-bottom:14px}
+.top b{color:var(--ink);font-size:15px}
+.pill{background:var(--soft);color:var(--ad);font-size:12px;padding:3px 10px;border-radius:12px;font-weight:600;margin-left:auto}
+.u{align-self:flex-end;background:var(--a);color:#fff;font-size:16px;padding:11px 18px;border-radius:16px 16px 4px 16px;margin-bottom:14px}
+.ai{display:flex;gap:11px}
+.av{flex:none;width:32px;height:32px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--a)}
+.bub{flex:1;background:#fff;border-radius:4px 16px 16px 16px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.say{font-size:14px;color:var(--mut);margin-bottom:9px}
+.calls{display:flex;flex-direction:column;gap:7px;margin-bottom:12px}
+.call{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-left:4px solid var(--a);border-radius:7px;padding:8px 12px;font-size:13px;background:#fafbfc}
+.call .nm{font-weight:600;flex:1}
+.call .tag{font-size:11px;color:var(--ad);background:var(--soft);padding:2px 8px;border-radius:9px}
+.call .rs{color:var(--mut);width:116px;text-align:right}
+.call .ok{color:#1a8f4d;font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-bottom:10px}
+th{text-align:left;color:var(--mut);font-weight:600;font-size:12px;padding:6px 8px;border-bottom:1.5px solid var(--line)}
+td{padding:8px;border-bottom:1px solid #f0f1f3}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.t td{font-weight:800;border-bottom:none;color:var(--ad);font-size:16px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:7px}
+.foot{font-size:12px;color:var(--mut);line-height:1.6}
+.inp{margin-top:auto;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-size:14px;color:#9aa1ab}
+.inp span:last-child{margin-left:auto;background:var(--a);color:#fff;border-radius:8px;padding:5px 14px;font-weight:600;font-size:13px}
+.ex{font-size:12px;color:var(--mut);text-align:right;margin-top:6px}
+</style><body>
+<div class="side"><h1>电商多店<br>AI 连接器</h1><p class="tg">在 AI 对话里，直接查你自己各家店铺的经营数据</p>
+<h3>已接入的平台</h3>
+<div class="pl"><i></i>抖店</div><div class="pl"><i></i>京东</div><div class="pl"><i></i>淘宝</div><div class="pl off"><i></i>快手</div><div class="pl off"><i></i>小红书</div><div class="pl off"><i></i>微信小店</div>
+<div class="lock"><b>只读，不改店铺</b><br>凭证只写在你自己电脑的客户端配置里，不上传。</div></div>
+<div class="main">
+ <div class="top"><b>Claude 桌面版</b><span>· 新对话</span><span class="pill">示意对话</span></div>
+ <div class="u">帮我看看三家店昨天的销量</div>
+ <div class="ai"><div class="av">AI</div><div class="bub">
+  <div class="say">好的，我分别去三个平台查一下昨天的订单。</div>
+  <div class="calls">
+   <div class="call"><span class="tag">只读</span><span class="nm">抖店 · 查询订单列表</span><span class="rs"><span class="ok">已完成</span> · 38 单</span></div>
+   <div class="call"><span class="tag">只读</span><span class="nm">京东 · 查询订单列表</span><span class="rs"><span class="ok">已完成</span> · 21 单</span></div>
+   <div class="call"><span class="tag">只读</span><span class="nm">淘宝 · 查询订单列表</span><span class="rs"><span class="ok">已完成</span> · 27 单</span></div>
+  </div>
+  <table><tr><th>店铺</th><th class="n">订单数</th><th class="n">成交金额</th></tr>
+   <tr><td><span class="dot" style="background:#C12B15"></span>山海食品旗舰店（抖店）</td><td class="n">38</td><td class="n">¥6,420.00</td></tr>
+   <tr><td><span class="dot" style="background:#e0902b"></span>云川数码专营店（京东）</td><td class="n">21</td><td class="n">¥4,185.50</td></tr>
+   <tr><td><span class="dot" style="background:#3f7fb5"></span>木禾家居（淘宝）</td><td class="n">27</td><td class="n">¥3,968.00</td></tr>
+   <tr class="t"><td>合计</td><td class="n">86</td><td class="n">¥14,573.50</td></tr></table>
+  <div class="foot">订单按页返回，数字由 AI 汇总，请以各平台后台为准。</div>
+ </div></div>
+ <div class="inp"><span>继续提问，例如：哪家店昨天退款最多？</span><span>发送</span></div>
+</div></body></html>
